@@ -2,6 +2,7 @@ import { useState, useCallback } from 'react'
 import { EMAILJS_CONFIG, SEGMENTS, RESPONSE_TIMES, SEGMENT_FIELDS } from './config'
 import { ArrowLeft, ArrowRight, CheckIcon, PhoneIcon } from './Icons'
 import { Field, FileUpload } from './FormFields'
+import emailjs from '@emailjs/browser'
 
 export default function App() {
   // Flow: 1 = segment, 2 = details, 3 = contact info, 5 = success
@@ -106,28 +107,25 @@ export default function App() {
     }
 
     try {
-      // ── Uncomment when EmailJS is configured ──
-      // await emailjs.send(EMAILJS_CONFIG.serviceId, EMAILJS_CONFIG.templates[seg], params, EMAILJS_CONFIG.publicKey);
-      //
-      // // Confirmation auto-reply to submitter
-      // await emailjs.send(EMAILJS_CONFIG.serviceId, EMAILJS_CONFIG.confirmationTemplate, {
-      //   to_email: contact.email,
-      //   to_name: contact.firstName,
-      //   segment: params.segment,
-      //   summary: Object.entries(data)
-      //     .filter(([k]) => k !== 'attachment')
-      //     .map(([k, v]) => `${k}: ${Array.isArray(v) ? v.join(', ') : v}`)
-      //     .join('\n'),
-      // }, EMAILJS_CONFIG.publicKey);
+      const details = Object.entries(data)
+        .filter(([k]) => k !== 'attachment')
+        .map(([k, v]) => `${k}: ${Array.isArray(v) ? v.join(', ') : v}`)
+        .join('\n')
 
-      await new Promise((r) => setTimeout(r, 1500))
+      await emailjs.send(
+        EMAILJS_CONFIG.serviceId,
+        EMAILJS_CONFIG.templates[seg],
+        { ...params, details },
+        EMAILJS_CONFIG.publicKey
+      )
+
       go(5)
-    } catch {
+    } catch (err) {
+      console.error('EmailJS error:', err)
       setErrors({ _s: 'Something went wrong. Please try again or call 206-622-8600.' })
     } finally {
       setLoading(false)
     }
-  }
 
   const reset = () => {
     setSeg(null)
