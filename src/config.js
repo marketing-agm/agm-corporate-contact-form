@@ -1,28 +1,27 @@
 // ─── EmailJS Configuration ───
 // Replace these values with your actual EmailJS credentials
-export const EMAILJS_CONFIG = {
-  serviceId: 'YOUR_SERVICE_ID',
-  publicKey: 'YOUR_PUBLIC_KEY',
+eexport const EMAILJS_CONFIG = {
+  serviceId: 'service_z8ih5ca',
+  publicKey: 'oVeCEKCpUsDe3_ba2',
   templates: {
-    owner: 'template_owner',
-    tenant: 'template_tenant',
-    investor: 'template_investor',
-    broker: 'template_broker',
-    vendor: 'template_vendor',
-    general: 'template_general',
+    owner: 'template_z08r5pq',
+    tenant: 'template_z08r5pq',
+    investor: 'template_z08r5pq',
+    broker: 'template_z08r5pq',
+    vendor: 'template_z08r5pq',
+    general: 'template_z08r5pq',
   },
-  confirmationTemplate: 'template_confirmation',
+  confirmationTemplate: 'template_z08r5pq',
   routing: {
-    owner: 'brokerage@agmrealestategroup.com',
-    tenant_residential: 'propertymanagement@agmrealestategroup.com',
-    tenant_commercial: 'commercial@agmrealestategroup.com',
-    investor: 'investments@agmrealestategroup.com',
-    broker: 'brokerage@agmrealestategroup.com',
-    vendor: 'operations@agmrealestategroup.com',
-    general: 'info@agmrealestategroup.com',
+    owner: 'sclements@agmrealestategroup.com',
+    tenant_residential: 'sclements@agmrealestategroup.com',
+    tenant_commercial: 'sclements@agmrealestategroup.com',
+    investor: 'sclements@agmrealestategroup.com',
+    broker: 'sclements@agmrealestategroup.com',
+    vendor: 'sclements@agmrealestategroup.com',
+    general: 'sclements@agmrealestategroup.com',
   },
 }
-
 // ─── Segments ───
 export const SEGMENTS = [
   { id: 'owner', label: 'Property Owner', subtitle: 'Management, advisory & investment services', num: '01' },
