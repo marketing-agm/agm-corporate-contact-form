@@ -1,7 +1,7 @@
 // ─── EmailJS Configuration ───
 // Replace these values with your actual EmailJS credentials
 eexport const EMAILJS_CONFIG = {
-  serviceId: 'service_z8ih5ca',
+  serviceId: 'service_2jpvm1m',
   publicKey: 'oVeCEKCpUsDe3_ba2',
   templates: {
     owner: 'template_z08r5pq',
